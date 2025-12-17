@@ -1,59 +1,11 @@
-<!-- http://localhost:8000/main.html -->
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>ROS2 通訊網頁</title>
-   <script src="https://cdn.jsdelivr.net/npm/roslib@1.0.1/build/roslib.min.js"></script>
+  <title>Hello World</title>
 </head>
 <body>
-    <div>
-        <h1>原圖</h1>
-        <select id="image_change">
-            <option value="前">原圖</option>
-            <option value="後">影像處理圖</option>
-            <option value="左">控制模式</option>
-        </select>
-        <br>
-        <img id="cam" width="640" height="480" src="http://140.125.201.53:8080/stream?topic=/camera_image">
-        <!-- <h1>影像處理圖</h1>
-        <img id="cam" width="640" height="480" src="http://10.202.151.192:8080/stream?topic=/processed_image"> -->
-    </div>
-
-    <h1>ROS2 通訊按鈕</h1>
-    <button onclick="sendMsg(1)">1</button>
-    <button onclick="sendMsg(2)">2</button>
-    <button onclick="sendMsg(3)">3</button>
-
-    <br>
-    <button onclick="sendMsg('前')">前</button>
-    <button onclick="sendMsg('後')">後</button>
-    <button onclick="sendMsg('左')">左</button>
-    <button onclick="sendMsg('右')">右</button>
-
-
-    <script>
-        const ros = new ROSLIB.Ros({
-            url: "ws://140.125.201.53:9090"
-        });
-
-        ros.on('connection', () => { console.log('已連接到 rosbridge'); });
-        ros.on('error', (error) => { console.log('連線錯誤: ', error); });
-        ros.on('close', () => { console.log('連線關閉'); });
-
-        // 建立 publisher
-        const pub = new ROSLIB.Topic({
-        ros: ros,
-        name: '/web_input',
-        messageType: 'std_msgs/String'
-        });
-
-        // 發送訊息
-        function sendMsg(num) {
-            const msg = new ROSLIB.Message({ data: String(num) });
-            pub.publish(msg);
-            console.log("已發送:", num);
-        }
-    </script>
+  <h1>🚀 Hello World</h1>
+  <p>如果你看到這行字，代表「前端正常顯示」</p>
 </body>
 </html>
