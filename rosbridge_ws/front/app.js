@@ -8,7 +8,7 @@ app.use(express.static(__dirname));
 
 // 首頁
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "index.html"));
+  res.sendFile(path.join(__dirname, "main.html"));
 });
 
 // 一定要用這個
